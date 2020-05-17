@@ -262,6 +262,7 @@
                 <cornerTR>Damage/Corner</cornerTR>
             </damageData>
         </graphicData>
+        <tickerType>Normal</tickerType>
         <rotatable>false</rotatable>
         <castEdgeShadows>true</castEdgeShadows>
         <altitudeLayer>LowPlant</altitudeLayer>
