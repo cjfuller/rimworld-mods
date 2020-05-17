@@ -7,8 +7,11 @@ A monorepo for all my rimworld mods.
 For local development you'll need the `fake` build tool installed
 (https://fake.build/).
 
-None of these mods are (yet) available on steam or anything, so they need to
-be installed manually. If you're running the steam version of the game on
+Meatless is available in the [steam
+workshop](https://steamcommunity.com/sharedfiles/filedetails/?id=2100272576).
+
+None of the other mods are (yet) available on steam or anything, so they need
+to be installed manually. If you're running the steam version of the game on
 mac, then you can run `fake build target install` to install to the
 appropriate place locally. If you're on a different platform, you'll first
 need to modify `targetDir` in `build.fsx` to point to the appropriate
