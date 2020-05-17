@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ModMetaData>
+    <packageId>colinfuller.CarpetColors</packageId>
     <name>CarpetColors</name>
     <author>Colin Fuller</author>
+    <url>https://github.com/cjfuller/rimworld-mods</url>
     <supportedVersions>
         <li>1.1</li>
     </supportedVersions>
