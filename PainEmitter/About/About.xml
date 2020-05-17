@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ModMetaData>
+    <name>Pain Emitter</name>
+    <author>Colin Fuller</author>
+    <supportedVersions>
+        <li>1.1</li>
+    </supportedVersions>
+    <description>
+        Adds a pain weapon used to disable human enemies without injuring.
+    </description>
+</ModMetaData>

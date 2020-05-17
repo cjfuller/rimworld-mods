@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+    <Operation Class="PatchOperationReplace">
+        <xpath>/Defs/RecipeDef[defName="CookMealFine"]/ingredients</xpath>
+        <value>
+            <ingredients>
+                <li>
+                    <filter>
+                        <categories>
+                            <li>MeatRaw</li>
+                            <li>AnimalProductRaw</li>
+                            <li>ProteinRaw</li>
+                        </categories>
+                    </filter>
+                    <count>0.25</count>
+                </li>
+                <li>
+                    <filter>
+                        <categories>
+                            <li>PlantFoodRaw</li>
+                        </categories>
+                    </filter>
+                    <count>0.25</count>
+                </li>
+            </ingredients>
+        </value>
+    </Operation>
+    <Operation Class="PatchOperationReplace">
+        <xpath>/Defs/RecipeDef[defName="CookMealFineBulk"]/ingredients</xpath>
+        <value>
+            <ingredients>
+                <li>
+                    <filter>
+                        <categories>
+                            <li>MeatRaw</li>
+                            <li>AnimalProductRaw</li>
+                            <li>ProteinRaw</li>
+                        </categories>
+                    </filter>
+                    <count>1.0</count>
+                </li>
+                <li>
+                    <filter>
+                        <categories>
+                            <li>PlantFoodRaw</li>
+                        </categories>
+                    </filter>
+                    <count>1.0</count>
+                </li>
+            </ingredients>
+        </value>
+    </Operation>
+    <Operation Class="PatchOperationReplace">
+        <xpath>/Defs/RecipeDef[defName="CookMealLavish"]/ingredients</xpath>
+        <value>
+            <ingredients>
+                <li>
+                    <filter>
+                        <categories>
+                            <li>MeatRaw</li>
+                            <li>AnimalProductRaw</li>
+                            <li>MeatSubstituteRaw</li>
+                        </categories>
+                    </filter>
+                    <count>0.5</count>
+                </li>
+                <li>
+                    <filter>
+                        <categories>
+                            <li>PlantFoodRaw</li>
+                        </categories>
+                    </filter>
+                    <count>0.5</count>
+                </li>
+            </ingredients>
+        </value>
+    </Operation>
+    <Operation Class="PatchOperationReplace">
+        <xpath>/Defs/RecipeDef[defName="CookMealLavishBulk"]/ingredients</xpath>
+        <value>
+            <ingredients>
+                <li>
+                    <filter>
+                        <categories>
+                            <li>MeatRaw</li>
+                            <li>AnimalProductRaw</li>
+                            <li>MeatSubstituteRaw</li>
+                        </categories>
+                    </filter>
+                    <count>2.0</count>
+                </li>
+                <li>
+                    <filter>
+                        <categories>
+                            <li>PlantFoodRaw</li>
+                        </categories>
+                    </filter>
+                    <count>2.0</count>
+                </li>
+            </ingredients>
+
+
+        </value>
+    </Operation>
+</Patch>

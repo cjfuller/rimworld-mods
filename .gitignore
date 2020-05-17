@@ -1,0 +1,7 @@
+.DS_Store
+.fake
+.ionide
+.vs
+**/obj
+packages
+**/Assemblies/*.dll

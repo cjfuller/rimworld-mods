@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<Defs>
+    <TerrainDef ParentName="CarpetFineBase">
+        <defName>CarpetFineGreen</defName>
+        <label>fine green carpet</label>
+        <renderPrecedence>200</renderPrecedence>
+        <description>Dark green carpet for leafy luxuriousness</description>
+        <color>(48, 64, 32)</color>
+    </TerrainDef>
+    <TerrainDef ParentName="CarpetFineBase">
+        <defName>CarpetFineGrey</defName>
+        <label>fine grey carpet</label>
+        <renderPrecedence>200</renderPrecedence>
+        <description>Dark grey carpet for subtle elegance.</description>
+        <color>(64, 64, 64)</color>
+    </TerrainDef>
+    <TerrainDef ParentName="CarpetFineBase">
+        <defName>CarpetFineBlue</defName>
+        <label>fine blue carpet</label>
+        <renderPrecedence>200</renderPrecedence>
+        <description>Rich brilliant blue carpet.</description>
+        <color>(0, 40, 64)</color>
+    </TerrainDef>
+</Defs>

@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+    <HediffDef ParentName="InjuryBase">
+        <defName>PainfulLesion</defName>
+        <label>painful lesion</label>
+        <labelNoun>a painful lesion</labelNoun>
+        <description>An overwhelmingly painful but otherwise harmless lesion.</description>
+        <comps>
+            <li Class="HediffCompProperties_TendDuration">
+                <labelTendedWell>soothed</labelTendedWell>
+                <labelTendedWellInner>tended</labelTendedWellInner>
+                <labelSolidTendedWell>tended</labelSolidTendedWell>
+            </li>
+        </comps>
+        <injuryProps>
+            <painPerSeverity>0.125</painPerSeverity>
+            <canMerge>false</canMerge>
+            <destroyedLabel>Destroyed</destroyedLabel>
+            <destroyedOutLabel>Destroyed</destroyedOutLabel>
+        </injuryProps>
+    </HediffDef>
+
+    <DamageDef>
+        <defName>Pain</defName>
+        <label>pain</label>
+        <harmsHealth>false</harmsHealth>
+        <makesBlood>false</makesBlood>
+        <workerClass>PainEmitter.DamageWorker_PainEmitter</workerClass>
+        <isRanged>true</isRanged>
+        <makesAnimalsFlee>true</makesAnimalsFlee>
+        <externalViolence>true</externalViolence>
+        <deathMessage>{0} has died of overwhelming pain.</deathMessage>
+        <hediff>PainfulLesion</hediff>
+    </DamageDef>
+
+    <ThingDef ParentName="BaseBullet">
+        <defName>Bullet_PainEmitter</defName>
+        <label>pain wave</label>
+        <graphicData>
+            <texPath>Things/Projectile/Charge_Small</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <projectile>
+            <damageDef>Pain</damageDef>
+            <damageAmountBase>1</damageAmountBase>
+            <armorPenetrationBase>0.5</armorPenetrationBase>
+            <speed>70</speed>
+        </projectile>
+    </ThingDef>
+
+    <ThingDef ParentName="BaseGun">
+        <defName>Gun_PainEmitter</defName>
+        <label>pain emitter</label>
+        <graphicData>
+            <texPath>Things/Building/Security/TurretSniper_Top</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <drawSize>(1,1)</drawSize>
+        </graphicData>
+        <menuHidden>true</menuHidden>
+        <description>Pain emittor.</description>
+        <soundInteract>Interact_ChargeRifle</soundInteract>
+        <tradeability>None</tradeability>
+        <destroyOnDrop>true</destroyOnDrop>
+        <statBases>
+            <Mass>10</Mass>
+            <AccuracyTouch>0.95</AccuracyTouch>
+            <AccuracyShort>0.85</AccuracyShort>
+            <AccuracyMedium>0.75</AccuracyMedium>
+            <AccuracyLong>0.7</AccuracyLong>
+            <RangedWeapon_Cooldown>1.1</RangedWeapon_Cooldown>
+        </statBases>
+        <weaponTags Inherit="false">
+            <li>TurretGun</li>
+        </weaponTags>
+        <verbs>
+            <li>
+                <verbClass>Verb_Shoot</verbClass>
+                <hasStandardCommand>true</hasStandardCommand>
+                <defaultProjectile>Bullet_PainEmitter</defaultProjectile>
+                <warmupTime>0.5</warmupTime>
+                <range>32</range>
+                <ticksBetweenBurstShots>12</ticksBetweenBurstShots>
+                <burstShotCount>3</burstShotCount>
+                <soundCast>ChargeLance_Fire</soundCast>
+                <soundCastTail>GunTail_Medium</soundCastTail>
+                <muzzleFlashScale>20</muzzleFlashScale>
+            </li>
+        </verbs>
+    </ThingDef>
+
+    <ThingDef ParentName="BuildingBase">
+        <defName>PainEmitterTurret</defName>
+        <label>pain emitter turret</label>
+        <thingClass>Building_TurretGun</thingClass>
+        <thingCategories>
+            <li>BuildingsSecurity</li>
+        </thingCategories>
+        <minifiedDef>MinifiedThing</minifiedDef>
+        <graphicData>
+            <texPath>Things/Building/Security/TurretSniper_Top</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <drawSize>(1,1)</drawSize>
+        </graphicData>
+        <uiIconPath>Things/Building/Security/TurretSniper_MenuIcon</uiIconPath>
+        <altitudeLayer>Building</altitudeLayer>
+        <statBases>
+            <Mass>80</Mass>
+            <MaxHitPoints>420</MaxHitPoints>
+            <Flammability>1.0</Flammability>
+            <WorkToBuild>1200</WorkToBuild>
+            <Beauty>-10</Beauty>
+        </statBases>
+        <tickerType>Normal</tickerType>
+        <comps>
+            <li Class="CompProperties_Forbiddable" />
+            <li Class="CompProperties_Power">
+                <compClass>CompPowerTrader</compClass>
+                <basePowerConsumption>200</basePowerConsumption>
+            </li>
+            <li Class="CompProperties_Flickable" />
+            <li Class="CompProperties_Breakdownable" />
+        </comps>
+        <description>A turret that remotely activates pain receptors in the target, causing incredible pain without permanent physical damage.</description>
+        <size>(1,1)</size>
+        <passability>PassThroughOnly</passability>
+        <pathCost>50</pathCost>
+        <fillPercent>0.4</fillPercent>
+        <castEdgeShadows>true</castEdgeShadows>
+        <hasTooltip>true</hasTooltip>
+        <costList>
+            <Steel>150</Steel>
+            <ComponentIndustrial>4</ComponentIndustrial>
+            <Silver>80</Silver>
+        </costList>
+        <terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
+        <constructEffect>ConstructMetal</constructEffect>
+        <designationCategory>Security</designationCategory>
+        <specialDisplayRadius>32</specialDisplayRadius>
+        <building>
+            <ai_combatDangerous>true</ai_combatDangerous>
+            <turretGunDef>Gun_PainEmitter</turretGunDef>
+            <turretBurstWarmupTime>0.5</turretBurstWarmupTime>
+            <turretBurstCooldownTime>0.5</turretBurstCooldownTime>
+        </building>
+        <researchPrerequisites>
+            <li>GunTurrets</li>
+        </researchPrerequisites>
+    </ThingDef>
+
+</Defs>

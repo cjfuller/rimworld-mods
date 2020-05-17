@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<Defs>
+    <ThingDef ParentName="PlantBase">
+        <defName>Plant_OysterMushroom</defName>
+        <label>oyster mushroom</label>
+        <description>A delicious and nutritious mushroom. Requires a small amount of plant matter to grow, but is not sensitive to light.</description>
+        <statBases>
+            <MaxHitPoints>25</MaxHitPoints>
+            <Nutrition>
+                0.4
+            </Nutrition>
+        </statBases>
+        <graphicData>
+            <texPath>Things/Plant/Glowstool</texPath>
+        </graphicData>
+        <selectable>true</selectable>
+        <neverMultiSelect>false</neverMultiSelect>
+        <pathCost>10</pathCost>
+        <ingestible />
+        <plant>
+            <fertilityMin>0.70</fertilityMin>
+            <dieIfLeafless>false</dieIfLeafless>
+            <harvestTag>Standard</harvestTag>
+            <harvestedThingDef>RawOysterMushroom</harvestedThingDef>
+            <harvestYield>2</harvestYield>
+            <sowTags>
+                <li>Ground</li>
+                <li>Mushroom</li>
+            </sowTags>
+            <growDays>3</growDays>
+            <visualSizeRange>0.1~0.8</visualSizeRange>
+            <wildOrder>2</wildOrder>
+            <purpose>Food</purpose>
+            <growMinGlow>0</growMinGlow>
+            <growOptimalGlow>0</growOptimalGlow>
+        </plant>
+    </ThingDef>
+    <ThingCategoryDef>
+        <defName>ProteinRaw</defName>
+        <label>vegetarian protein</label>
+        <parent>FoodRaw</parent>
+        <iconPath>UI/Icons/ThingCategories/PlantFoodRaw</iconPath>
+    </ThingCategoryDef>
+    <ThingCategoryDef>
+        <defName>MeatSubstituteRaw</defName>
+        <label>vegetarian meat substitute</label>
+        <parent>FoodRaw</parent>
+        <iconPath>UI/Icons/ThingCategories/PlantFoodRaw</iconPath>
+    </ThingCategoryDef>
+    <ThingDef ParentName="PlantFoodRawBase">
+        <defName>RawOysterMushroom</defName>
+        <label>oyster mushroom</label>
+        <description>Raw oyster mushroom.</description>
+        <graphicData>
+            <texPath>Things/Item/Resource/PlantFoodRaw/RawFungus</texPath>
+        </graphicData>
+        <statBases>
+            <MarketValue>1.1</MarketValue>
+        </statBases>
+        <ingestible>
+            <foodType>VegetableOrFruit</foodType>
+        </ingestible>
+        <comps>
+            <li Class="CompProperties_Rottable">
+                <daysToRotStart>10</daysToRotStart>
+                <rotDestroys>true</rotDestroys>
+            </li>
+        </comps>
+        <thingCategories>
+            <li>ProteinRaw</li>
+        </thingCategories>
+    </ThingDef>
+    <ThingDef ParentName="OrganicProductBase">
+        <defName>MeatSubstitute</defName>
+        <label>meat substitute</label>
+        <description>A delicious, scientifically honed meat substitute that can be used in any meal recipe.</description>
+        <graphicData>
+            <texPath>Things/Item/Resource/Pemmican</texPath>
+            <graphicClass>Graphic_StackCount</graphicClass>
+        </graphicData>
+        <socialPropernessMatters>true</socialPropernessMatters>
+        <statBases>
+            <MarketValue>2.5</MarketValue>
+            <Mass>0.018</Mass>
+            <Flammability>0.6</Flammability>
+            <WorkToMake>1440</WorkToMake>
+            <DeteriorationRate>2</DeteriorationRate>
+            <Nutrition>0.25</Nutrition>
+            <FoodPoisonChanceFixedHuman>0.02</FoodPoisonChanceFixedHuman>
+        </statBases>
+        <ingestible>
+            <foodType>Processed</foodType>
+            <ingestEffect>EatMeat</ingestEffect>
+            <ingestSound>RawMeat_Eat</ingestSound>
+            <tasteThought>AteRawFood</tasteThought>
+            <preferability>RawBad</preferability>
+        </ingestible>
+        <comps>
+            <li Class="CompProperties_Rottable">
+                <daysToRotStart>10</daysToRotStart>
+                <rotDestroys>true</rotDestroys>
+            </li>
+            <li Class="CompProperties_Ingredients" />
+            <li Class="CompProperties_FoodPoisonable" />
+        </comps>
+        <thingCategories>
+            <li>ProteinRaw</li>
+            <li>MeatSubstituteRaw</li>
+        </thingCategories>
+    </ThingDef>
+
+    <RecipeDef>
+        <defName>Make_MeatSubstitute</defName>
+        <label>make meat substitute</label>
+        <description>Prepare a delicious, scientifically honed meat substitute.</description>
+        <jobString>Making meat substitute</jobString>
+        <workSpeedStat>CookSpeed</workSpeedStat>
+        <requiredGiverWorkType>Cooking</requiredGiverWorkType>
+        <workAmount>1440</workAmount>
+        <effectWorking>Cook</effectWorking>
+        <soundWorking>Recipe_CookMeal</soundWorking>
+        <allowMixingIngredients>true</allowMixingIngredients>
+        <ingredients>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>RawOysterMushroom</li>
+                    </thingDefs>
+                </filter>
+                <count>15</count>
+            </li>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>RawPotatoes</li>
+                    </thingDefs>
+                </filter>
+                <count>20</count>
+            </li>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>RawRice</li>
+                    </thingDefs>
+                </filter>
+                <count>50</count>
+            </li>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>Chocolate</li>
+                    </thingDefs>
+                </filter>
+                <count>10</count>
+            </li>
+        </ingredients>
+        <products>
+            <MeatSubstitute>10</MeatSubstitute>
+        </products>
+        <workSkill>Cooking</workSkill>
+    </RecipeDef>
+    <ThingDef ParentName="BenchBase">
+        <defName>FoodProcessingStation</defName>
+        <label>food processing station</label>
+        <description>A station for making processed food derivatives, like artificial meat.</description>
+        <thingClass>Building_WorkTable</thingClass>
+        <graphicData>
+            <texPath>Things/Building/Production/TableButcher</texPath>
+            <graphicClass>Graphic_Multi</graphicClass>
+            <drawSize>(3.5,1.5)</drawSize>
+            <color>(184, 184, 184)</color>
+            <damageData>
+                <cornerTL>Damage/Corner</cornerTL>
+                <cornerTR>Damage/Corner</cornerTR>
+                <cornerBL>Damage/Corner</cornerBL>
+                <cornerBR>Damage/Corner</cornerBR>
+            </damageData>
+        </graphicData>
+        <constructEffect>ConstructMetal</constructEffect>
+        <costList>
+            <WoodLog>30</WoodLog>
+            <Steel>120</Steel>
+        </costList>
+        <recipes>
+            <li>Make_MeatSubstitute</li>
+            <li>Make_Pemmican</li>
+        </recipes>
+        <researchPrerequisites>
+            <li>MeatSubstitutes</li>
+        </researchPrerequisites>
+        <altitudeLayer>Building</altitudeLayer>
+        <fillPercent>0.5</fillPercent>
+        <useHitPoints>True</useHitPoints>
+        <statBases>
+            <WorkToBuild>2000</WorkToBuild>
+            <MaxHitPoints>180</MaxHitPoints>
+            <Flammability>1.0</Flammability>
+        </statBases>
+        <size>(3,1)</size>
+        <designationCategory>Production</designationCategory>
+        <passability>PassThroughOnly</passability>
+        <pathCost>70</pathCost>
+        <hasInteractionCell>True</hasInteractionCell>
+        <interactionCellOffset>(0,0,-1)</interactionCellOffset>
+        <surfaceType>Item</surfaceType>
+        <inspectorTabs>
+            <li>ITab_Bills</li>
+        </inspectorTabs>
+        <building>
+            <spawnedConceptLearnOpportunity>BillsTab</spawnedConceptLearnOpportunity>
+        </building>
+        <placeWorkers>
+            <li>PlaceWorker_PreventInteractionSpotOverlap</li>
+        </placeWorkers>
+    </ThingDef>
+    <ResearchProjectDef>
+        <defName>MeatSubstitutes</defName>
+        <label>meat substitutes</label>
+        <description>Production of processed meat substitutes that can be used in high-end meals.</description>
+        <baseCost>1000</baseCost>
+        <techLevel>Industrial</techLevel>
+        <researchViewX>4.00</researchViewX>
+        <researchViewY>3.20</researchViewY>
+        <prerequisites>
+            <li>Brewing</li>
+            <li>Cocoa</li>
+            <li>Pemmican</li>
+            <li>DrugProduction</li>
+        </prerequisites>
+    </ResearchProjectDef>
+    <WorkGiverDef>
+        <defName>DoBillsProcessFood</defName>
+        <label>make processed food products</label>
+        <giverClass>WorkGiver_DoBill</giverClass>
+        <workType>Cooking</workType>
+        <priorityInType>99</priorityInType>
+        <fixedBillGiverDefs>
+            <li>FoodProcessingStation</li>
+        </fixedBillGiverDefs>
+        <verb>process food</verb>
+        <gerund>processing food at</gerund>
+        <requiredCapacities>
+            <li>Manipulation</li>
+        </requiredCapacities>
+        <prioritizeSustains>true</prioritizeSustains>
+    </WorkGiverDef>
+
+    <ThingDef ParentName="BuildingBase">
+        <defName>MushroomBucket</defName>
+        <label>mushroom bucket</label>
+        <description>A bucket you can fill with organic detritus to grow oyster mushrooms anywhere.</description>
+        <thingClass>Building_PlantGrower</thingClass>
+        <graphicData>
+            <texPath>Meatless/bucket-3d</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <drawRotated>false</drawRotated>
+            <allowFlip>false</allowFlip>
+            <damageData>
+                <rect>(0.05,0.1,0.9,0.9)</rect>
+                <cornerTL>Damage/Corner</cornerTL>
+                <cornerTR>Damage/Corner</cornerTR>
+            </damageData>
+        </graphicData>
+        <rotatable>false</rotatable>
+        <castEdgeShadows>true</castEdgeShadows>
+        <altitudeLayer>LowPlant</altitudeLayer>
+        <passability>PassThroughOnly</passability>
+        <pathCost>60</pathCost>
+        <constructEffect>ConstructWood</constructEffect>
+        <fillPercent>0.30</fillPercent>
+        <canOverlapZones>false</canOverlapZones>
+        <constructionSkillPrerequisite>4</constructionSkillPrerequisite>
+        <statBases>
+            <WorkToBuild>200</WorkToBuild>
+            <MaxHitPoints>50</MaxHitPoints>
+            <Flammability>1</Flammability>
+            <Cleanliness>-1</Cleanliness>
+        </statBases>
+        <size>(1,1)</size>
+        <costList>
+            <Steel>1</Steel>
+            <WoodLog>10</WoodLog>
+        </costList>
+        <fertility>3</fertility>
+        <building>
+            <defaultPlantToGrow>Plant_OysterMushroom</defaultPlantToGrow>
+            <sowTag>Mushroom</sowTag>
+        </building>
+        <comps>
+            <li Class="CompProperties_Forbiddable" />
+            <li Class="CompProperties_Refuelable">
+                <fuelConsumptionRate>0.5</fuelConsumptionRate>
+                <fuelCapacity>5</fuelCapacity>
+                <fuelFilter>
+                    <thingDefs>
+                        <li>WoodLog</li>
+                        <li>RawRice</li>
+                        <li>RawPotatoes</li>
+                        <li>RawCorn</li>
+                        <li>RawAgave</li>
+                        <li>RawBerries</li>
+                        <li>Hay</li>
+                        <li>RawHops</li>
+                        <li>PsychoidLeaves</li>
+                        <li>SmokeleafLeaves</li>
+                    </thingDefs>
+                </fuelFilter>
+                <initialFuelPercent>1</initialFuelPercent>
+                <showAllowAutoRefuelToggle>true</showAllowAutoRefuelToggle>
+            </li>
+        </comps>
+        <terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+        <designationCategory>Production</designationCategory>
+    </ThingDef>
+</Defs>
