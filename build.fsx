@@ -1,4 +1,5 @@
 #r "paket:
+nuget FSharp.Core
 nuget Fake.IO.FileSystem
 nuget Fake.DotNet.MSBuild
 nuget Fake.Core.Target //"
@@ -12,8 +13,9 @@ open Fake.IO.FileSystemOperators
 open Fake.IO.Globbing.Operators
 
 let targetDir =
-    Environment.environVar "HOME"
-    @@ "Library/Application Support/Steam/steamapps/common/RimWorld/RimWorldMac.app/Mods"
+    // Environment.environVar "HOME"
+    // @@ "Library/Application Support/Steam/steamapps/common/RimWorld/RimWorldMac.app/Mods"
+    "C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods"
 
 let allModNames =
     [ "CarpetColors"
