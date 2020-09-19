@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30503.244
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "PainEmitter", "PainEmitter.fsproj", "{44119F7F-79FB-4E40-9713-CA2586D19CC9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{44119F7F-79FB-4E40-9713-CA2586D19CC9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{44119F7F-79FB-4E40-9713-CA2586D19CC9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3B770CA4-792D-4F66-9861-E1DFEE178CB5}
+	EndGlobalSection
+EndGlobal
